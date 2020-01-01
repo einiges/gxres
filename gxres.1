@@ -1,0 +1,48 @@
+.TH gxres 1 "" gxres\-VERSION
+
+.SH NAME
+gxres - \fBg\fRet \fBX\fR \fBres\fRource[s]
+
+.SH SYNOPSIS
+.B gxres
+.RB [\- bcnhv "] [name:]resource..."
+
+.SH DESCRIPTION
+.B gxres
+is a simple tool to receive xr-values from the X resource database, and optionally generate a sourceable shell script.
+
+\fIname\fR will be used as the variable name when used with the \fB\-b\fR or \fB\-c\fR option.
+
+\fIresource\fR is a resource of the X resource database.
+
+If multiple resource are requested, each xr-value will be printed on a separate line. Neither the xr-value nor \fIname\fR will be validated. Keep in mind that xr-values with linebreaks (\\n) break the output as well.
+
+If any requested resource does not exist, an error will be printed to stderr, but no value is printed to stdout.
+
+.SH OPTIONS
+
+.TP
+.B \-b
+.RI "output Bourne shell code. Requires " name " to be set."
+
+.TP
+.B \-c
+.RI "output C shell code. Requires " name " to be set."
+
+.TP
+.B \-n
+.RI "output plain values. Ignores " name " if set."
+
+.TP
+.B \-h
+Prints a short help to stderr, then exits successfully.
+
+.TP
+.B \-v
+Prints version information to stderr, then exits successfully.
+
+.SH LICENSE
+See the LICENSE file for the terms of redistribution.
+
+.SH SEE ALSO
+.BR xrdb (1)
